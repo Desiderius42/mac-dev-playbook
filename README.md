@@ -45,11 +45,14 @@ Ouvrir 1Password, se connecter, récupérer ses mots de passe (dont Apple ID).
 
 Ouvrir App Store, se connecter avec son Apple ID (nécessaire pour installer Xcode via le playbook).
 
-### 6. Installer Ansible
+### 6. Installer Ansible et Claude Code
 
 ```bash
-brew install ansible
+brew install ansible node
+npm install -g @anthropic-ai/claude-code
 ```
+
+Claude Code est disponible dès maintenant pour aider à debugger si le playbook échoue.
 
 ### 7. Cloner et lancer le playbook
 
