@@ -29,7 +29,7 @@ Cliquer "Installer" dans la popup, attendre la fin.
 Suivre les instructions affichées à la fin :
 
 ```bash
-echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> ~/.zprofile
+echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> ~/.zshrc
 eval "$(/opt/homebrew/bin/brew shellenv)"
 ```
 
