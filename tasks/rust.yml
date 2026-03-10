@@ -1,0 +1,21 @@
+---
+- name: Check if rustup is installed.
+  stat:
+    path: "{{ ansible_env.HOME }}/.cargo/bin/rustup"
+  register: rustup_check
+
+- name: Install Rust via rustup.
+  shell: curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
+  args:
+    creates: "{{ ansible_env.HOME }}/.cargo/bin/rustup"
+  when: not rustup_check.stat.exists
+
+- name: Add Rust cross-compilation targets.
+  command: "{{ ansible_env.HOME }}/.cargo/bin/rustup target add {{ item }}"
+  loop:
+    - aarch64-apple-ios
+    - aarch64-apple-ios-sim
+    - aarch64-linux-android
+    - armv7-linux-androideabi
+  register: rustup_target
+  changed_when: "'installing' in rustup_target.stderr"

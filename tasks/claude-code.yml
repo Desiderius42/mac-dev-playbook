@@ -1,0 +1,35 @@
+---
+- name: Create ~/.claude directory.
+  file:
+    path: "{{ ansible_env.HOME }}/.claude"
+    state: directory
+    mode: '0755'
+
+- name: Configure Claude Code plugins (settings.json).
+  copy:
+    dest: "{{ ansible_env.HOME }}/.claude/settings.json"
+    content: |
+      {
+        "enabledPlugins": {
+          "ouroboros@ouroboros": true,
+          "swift-lsp@claude-plugins-official": true,
+          "rust-analyzer-lsp@claude-plugins-official": true
+        }
+      }
+    force: false
+    mode: '0644'
+
+- name: Configure Claude Code MCP servers (mcp.json).
+  copy:
+    dest: "{{ ansible_env.HOME }}/.claude/mcp.json"
+    content: |
+      {
+        "mcpServers": {
+          "ouroboros": {
+            "command": "uvx",
+            "args": ["--from", "ouroboros-ai", "ouroboros", "mcp", "serve"]
+          }
+        }
+      }
+    force: false
+    mode: '0644'

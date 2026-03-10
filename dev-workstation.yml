@@ -1,0 +1,35 @@
+---
+# Playbook dédié : station de dev pure (React Native + Rust + Claude Code)
+# Usage : ansible-playbook dev-workstation.yml -i inventory -K
+# Les apps supprimées sont commentées dans default.config.yml (décommenter pour réinstaller)
+- hosts: localhost
+  connection: local
+
+  vars_files:
+    - default.config.yml
+
+  pre_tasks:
+    - name: Include playbook configuration.
+      include_vars: "{{ item }}"
+      with_fileglob:
+        - "{{ playbook_dir }}/config.yml"
+      tags: ['always']
+
+  roles:
+    - role: elliotweiser.osx-command-line-tools
+    - role: geerlingguy.mac.homebrew
+      tags: ['homebrew']
+    - role: geerlingguy.mac.mas
+      when: mas_installed_apps or mas_installed_app_ids
+      tags: ['mas']
+
+  tasks:
+    - import_tasks: tasks/extra-packages.yml
+      tags: ['extra-packages']
+
+    - import_tasks: tasks/rust.yml
+      when: configure_rust
+      tags: ['rust']
+
+    - import_tasks: tasks/claude-code.yml
+      tags: ['claude-code']

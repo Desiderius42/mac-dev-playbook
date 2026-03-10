@@ -4,6 +4,7 @@ downloads: ~/.ansible-downloads/
 configure_dotfiles: false
 configure_terminal: true
 configure_osx: false
+configure_rust: true
 
 # Set to 'true' to configure the Dock via dockutil.
 configure_dock: false
@@ -34,101 +35,110 @@ sudoers_custom_config: ''
 
 
 homebrew_installed_packages:
-  # https://formulae.brew.sh/analytics/install/365d/
-  # - ansible # Installed via Pip.
-  # list with brew leaves
-  - asciidoc
-  - autoconf
+  # Shell & git
   - bash-completion
-  - ccache
-  - clang-format
-  - cmake
-  - exercism
-  - gcc
+  - zsh-history-substring-search
   - git-lfs
-  - git-flow
-  - gnupg
-  - imagemagick
-  - lcov
-  - lynx
-  - markdown
-  - mas
-  - mercurial
- # - mono
-  - ninja
-  - doxygen
-  - gettext
   - github/gh/gh
-  - gpg
-  - iperf
-  - libevent
-  - mcrypt
-  - nmap
-  - node
-  - nvm
-  - openssl
-#  - preform
-#  - pyenv
-  - qt
-  - readline
+  - gnupg
   - ssh-copy-id
   - vim
   - wget
-  - wrk
+  # Build tools (native compilation)
+  - autoconf
+  - cmake
+  - ninja
+  - gettext
+  - openssl
+  - readline
+  # JS / React Native
+  - node
+  - nvm
+  - watchman
+  # Java (Gradle / Android)
+  - openjdk@17
+  # iOS device logs
+  - libimobiledevice
+  # Python / MCP Ouroboros
+  - python
+  - uv
+  # Ansible
+  - mas
   - yamllint
-  - zsh-history-substring-search
+  # --- Décommentez pour réinstaller ---
+  # - asciidoc
+  # - ccache
+  # - clang-format
+  # - doxygen
+  # - exercism
+  # - gcc
+  # - git-flow
+  # - imagemagick
+  # - iperf
+  # - lcov
+  # - libevent
+  # - lynx
+  # - markdown
+  # - mcrypt
+  # - mercurial
+  # - nmap
+  # - qt
+  # - wrk
 
 homebrew_taps:
-  - homebrew/core
-  - homebrew/cask
+#  - homebrew/cask
 # https://formulae.brew.sh/analytics/cask-install/365d/
 homebrew_cask_appdir: /Applications
 homebrew_cask_apps:
-  - adobe-acrobat-reader
-  - anki
-# - brave-browser
-  - discord
-  - docker
-  - dropbox
-  - electrum
-  - evernote
-# - firefox
-  - google-drive
-  - google-chrome
-  - grandperspective
-  - ledger-live
-  - ltspice
-  - meld
-  - microsoft-teams
-  - macfuse
-  - notion
-  - plex
-  - plex-media-server
-  - projectlibre
-  - resilio-sync
-  - sabnzbd
-  - sourcetree
-  - shadow
-  - simple-comic
-# - skype
-  - slack
-  - steam
+  # IDE / éditeurs
+  - visual-studio-code
   - sublime-text
-  - suspicious-package
-  - todoist
-  - transmission
- # - visual-studio-code
-  - vlc
-  - whatsapp
-  - xmind
+  # Dev tools
+  - docker
+  - sourcetree
+  - android-studio
+  # Navigateur (debug web / docs)
+  - google-chrome
+  # Communication pro
+  - slack
   - zoom
-  - protonmail-bridge
+  # --- Décommentez pour réinstaller ---
+  # - adobe-acrobat-reader
+  # - anki
+  # - discord
+  # - dropbox
+  # - electrum
+  # - evernote
+  # - google-drive
+  # - grandperspective
+  # - ledger-live
+  # - ltspice
+  # - macfuse
+  # - meld
+  # - microsoft-teams
+  # - notion
+  # - plex
+  # - plex-media-server
+  # - projectlibre
+  # - protonmail-bridge
+  # - resilio-sync
+  # - sabnzbd
+  # - shadow
+  # - simple-comic
+  # - steam
+  # - suspicious-package
+  # - todoist
+  # - transmission
+  # - vlc
+  # - whatsapp
+  # - xmind
 
 # See `geerlingguy.mas` role documentation for usage instructions.
 mas_installed_apps:
-  - {id: 517914548, name: "Dashlane"}
-  - {id: 1176895641, name: "Spark - Email App by Readdle "}
-  - {id: 1176895641, name:"xcode"}
+  - {id: 497799835, name: "Xcode"}
+  # --- Décommentez pour réinstaller ---
+  # - {id: 517914548, name: "Dashlane"}
+  # - {id: 1176895641, name: "Spark"}
 
 mas_email: ""
 mas_password: ""
@@ -141,14 +151,12 @@ composer_packages: []
 # - name: drush
 #   state: present # present/absent, default: present
 #   version: "^8.1" # default: N/A
-gem_packages: []
-# - name: bundler
-#   state: present # present/absent/latest, default: present
-#   version: "~> 1.15.1" # default: N/A
-npm_packages: []
-# - name: webpack
-#   state: present # present/absent/latest, default: present
-#   version: "^2.6" # default: N/A
+gem_packages:
+  - name: cocoapods
+    state: present
+npm_packages:
+  - name: "@anthropic-ai/claude-code"
+    state: present
 pip_packages: []
 # - name: mkdocs
 #   state: present # present/absent/latest, default: present
