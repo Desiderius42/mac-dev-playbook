@@ -12,15 +12,7 @@ Fork de [geerlingguy/mac-dev-playbook](https://github.com/geerlingguy/mac-dev-pl
 
 Spotlight (`Cmd+Espace`) > "Terminal"
 
-### 2. Installer Xcode Command Line Tools
-
-```bash
-xcode-select --install
-```
-
-Cliquer "Installer" dans la popup, attendre la fin.
-
-### 3. Installer Homebrew
+### 2. Installer Homebrew (installe aussi Xcode Command Line Tools automatiquement, ~10 min)
 
 ```bash
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
@@ -33,7 +25,7 @@ echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> ~/.zshrc
 eval "$(/opt/homebrew/bin/brew shellenv)"
 ```
 
-### 4. Installer 1Password (mots de passe nécessaires pour la suite)
+### 3. Installer 1Password (mots de passe nécessaires pour la suite)
 
 ```bash
 brew install --cask 1password
@@ -41,11 +33,11 @@ brew install --cask 1password
 
 Ouvrir 1Password, se connecter, récupérer ses mots de passe (dont Apple ID).
 
-### 5. Se connecter au Mac App Store
+### 4. Se connecter au Mac App Store
 
 Ouvrir App Store, se connecter avec son Apple ID (nécessaire pour installer Xcode via le playbook).
 
-### 6. Installer Ansible et Claude Code
+### 5. Installer Ansible et Claude Code
 
 ```bash
 brew install ansible node
@@ -54,7 +46,7 @@ npm install -g @anthropic-ai/claude-code
 
 Claude Code est disponible dès maintenant pour aider à debugger si le playbook échoue.
 
-### 7. Cloner et lancer le playbook
+### 6. Cloner et lancer le playbook
 
 ```bash
 git clone https://github.com/Desiderius42/mac-dev-playbook.git
@@ -67,7 +59,7 @@ ansible-playbook dev-workstation.yml -i inventory -K
 
 Le playbook installe : brew packages, cask apps (VS Code, Docker, Android Studio...), Xcode (MAS), CocoaPods (gem), Claude Code (npm), Rust + cross-compilation targets, config Claude Code (~/.claude/).
 
-### 8. Post-install manuels
+### 7. Post-install manuels
 
 **Rust dans le PATH :**
 
@@ -105,7 +97,7 @@ export PATH=$ANDROID_HOME/emulator:$ANDROID_HOME/platform-tools:$PATH
 claude plugins install ouroboros swift-lsp rust-analyzer-lsp
 ```
 
-### 9. Vérification
+### 8. Vérification
 
 ```bash
 node --version      # >= 20
