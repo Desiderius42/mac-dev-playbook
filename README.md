@@ -20,11 +20,7 @@ xcode-select --install
 
 Cliquer "Installer" dans la popup, attendre la fin.
 
-### 3. Se connecter au Mac App Store
-
-Ouvrir App Store, se connecter avec son Apple ID (nécessaire pour installer Xcode via le playbook).
-
-### 4. Installer Homebrew
+### 3. Installer Homebrew
 
 ```bash
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
@@ -37,13 +33,25 @@ echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> ~/.zprofile
 eval "$(/opt/homebrew/bin/brew shellenv)"
 ```
 
-### 5. Installer Ansible
+### 4. Installer 1Password (mots de passe nécessaires pour la suite)
+
+```bash
+brew install --cask 1password
+```
+
+Ouvrir 1Password, se connecter, récupérer ses mots de passe (dont Apple ID).
+
+### 5. Se connecter au Mac App Store
+
+Ouvrir App Store, se connecter avec son Apple ID (nécessaire pour installer Xcode via le playbook).
+
+### 6. Installer Ansible
 
 ```bash
 brew install ansible
 ```
 
-### 6. Cloner et lancer le playbook
+### 7. Cloner et lancer le playbook
 
 ```bash
 git clone https://github.com/Desiderius42/mac-dev-playbook.git
@@ -56,7 +64,7 @@ ansible-playbook dev-workstation.yml -i inventory -K
 
 Le playbook installe : brew packages, cask apps (VS Code, Docker, Android Studio...), Xcode (MAS), CocoaPods (gem), Claude Code (npm), Rust + cross-compilation targets, config Claude Code (~/.claude/).
 
-### 7. Post-install manuels
+### 8. Post-install manuels
 
 **Rust dans le PATH :**
 
@@ -94,7 +102,7 @@ export PATH=$ANDROID_HOME/emulator:$ANDROID_HOME/platform-tools:$PATH
 claude plugins install ouroboros swift-lsp rust-analyzer-lsp
 ```
 
-### 8. Vérification
+### 9. Vérification
 
 ```bash
 node --version      # >= 20

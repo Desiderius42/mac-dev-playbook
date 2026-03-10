@@ -90,6 +90,8 @@ homebrew_taps:
 # https://formulae.brew.sh/analytics/cask-install/365d/
 homebrew_cask_appdir: /Applications
 homebrew_cask_apps:
+  # Gestionnaire de mots de passe (installer en premier)
+  - 1password
   # IDE / éditeurs
   - visual-studio-code
   - sublime-text
