@@ -39,7 +39,7 @@ homebrew_installed_packages:
   - bash-completion
   - zsh-history-substring-search
   - git-lfs
-  - github/gh/gh
+  - gh
   - gnupg
   - ssh-copy-id
   - vim
@@ -48,99 +48,103 @@ homebrew_installed_packages:
   - autoconf
   - cmake
   - ninja
-  - gettext
+  #- gettext
   - openssl
-  - readline
+  #- readline
   # JS / React Native
   - node
-  - nvm
-  - watchman
+  #- nvm
+  #- watchman
   # Java (Gradle / Android)
-  - openjdk@17
+  #- openjdk@17
   # iOS device logs
-  - libimobiledevice
+  #- libimobiledevice
   # Python / MCP Ouroboros
-  - python
-  - uv
+  #- python
+  #- uv
   # Ansible
-  - mas
+  # - mas
   - yamllint
   # --- Décommentez pour réinstaller ---
   # - asciidoc
-  # - ccache
-  # - clang-format
-  # - doxygen
+  - ccache
+  - clang-format
+  - doxygen
   # - exercism
   # - gcc
-  # - git-flow
+  - git-flow
   # - imagemagick
   # - iperf
-  # - lcov
+  - lcov
   # - libevent
   # - lynx
-  # - markdown
+  - markdown
   # - mcrypt
   # - mercurial
   # - nmap
   # - qt
   # - wrk
 
-homebrew_taps:
+homebrew_taps: []
 #  - homebrew/cask
 # https://formulae.brew.sh/analytics/cask-install/365d/
 homebrew_cask_appdir: /Applications
 homebrew_cask_apps:
   # Gestionnaire de mots de passe (installer en premier)
-  - 1password
+  #- 1password
   # IDE / éditeurs
-  - visual-studio-code
-  - sublime-text
+  #- visual-studio-code
+  # - sublime-text
   # Dev tools
-  - docker
-  - sourcetree
-  - android-studio
+  #- docker
+  #- sourcetree
+  #- android-studio
   # Navigateur (debug web / docs)
-  - google-chrome
+  #- google-chrome
   # Communication pro
   - slack
-  - zoom
+  #- zoom
   # --- Décommentez pour réinstaller ---
   # - adobe-acrobat-reader
   # - anki
   # - discord
+  - displaylink
   # - dropbox
   # - electrum
   # - evernote
   # - google-drive
-  # - grandperspective
+  - grandperspective
+  - home-assistant
   # - ledger-live
   # - ltspice
   # - macfuse
   # - meld
   # - microsoft-teams
   # - notion
-  # - plex
+  - plex
   # - plex-media-server
   # - projectlibre
-  # - protonmail-bridge
+  - protonmail-bridge
   # - resilio-sync
   # - sabnzbd
-  # - shadow
+  - shadow
   # - simple-comic
-  # - steam
+  - steam
+  # - tailscale  # installer manuellement (nécessite sudo interactif)
+  - vscodium
   # - suspicious-package
-  # - todoist
+  - todoist
   # - transmission
   # - vlc
-  # - whatsapp
+  - whatsapp
   # - xmind
 
 # See `geerlingguy.mas` role documentation for usage instructions.
 mas_installed_apps:
-  - {id: 497799835, name: "Xcode"}
+  # - {id: 497799835, name: "Xcode"}
   # --- Décommentez pour réinstaller ---
   # - {id: 517914548, name: "Dashlane"}
-  # - {id: 1176895641, name: "Spark"}
+  - {id: 1176895641, name: "Spark"}
 
 mas_email: ""
 mas_password: ""
@@ -153,12 +157,12 @@ composer_packages: []
 # - name: drush
 #   state: present # present/absent, default: present
 #   version: "^8.1" # default: N/A
-gem_packages:
-  - name: cocoapods
-    state: present
-npm_packages:
-  - name: "@anthropic-ai/claude-code"
-    state: present
+#gem_packages:
+#  - name: cocoapods
+#    state: present
+#npm_packages:
+#  - name: "@anthropic-ai/claude-code"
+#    state: present
 pip_packages: []
 # - name: mkdocs
 #   state: present # present/absent/latest, default: present

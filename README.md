@@ -33,11 +33,17 @@ brew install --cask 1password
 
 Ouvrir 1Password, se connecter, récupérer ses mots de passe (dont Apple ID).
 
-### 4. Se connecter au Mac App Store
+### 4. Installer les casks nécessitant sudo interactif (incompatibles avec le playbook)
+
+```bash
+brew install --cask google-drive tailscale
+```
+
+### 5. Se connecter au Mac App Store
 
 Ouvrir App Store, se connecter avec son Apple ID (nécessaire pour installer Xcode via le playbook).
 
-### 5. Installer Ansible et Claude Code
+### 6. Installer Ansible et Claude Code
 
 ```bash
 brew install ansible node
@@ -46,7 +52,7 @@ npm install -g @anthropic-ai/claude-code
 
 Claude Code est disponible dès maintenant pour aider à debugger si le playbook échoue.
 
-### 6. Cloner et lancer le playbook
+### 7. Cloner et lancer le playbook
 
 ```bash
 git clone https://github.com/Desiderius42/mac-dev-playbook.git
@@ -59,7 +65,7 @@ ansible-playbook dev-workstation.yml -i inventory -K
 
 Le playbook installe : brew packages, cask apps (VS Code, Docker, Android Studio...), Xcode (MAS), CocoaPods (gem), Claude Code (npm), Rust + cross-compilation targets, config Claude Code (~/.claude/).
 
-### 7. Post-install manuels
+### 8. Post-install manuels
 
 **Rust dans le PATH :**
 
@@ -97,7 +103,7 @@ export PATH=$ANDROID_HOME/emulator:$ANDROID_HOME/platform-tools:$PATH
 claude plugins install ouroboros swift-lsp rust-analyzer-lsp
 ```
 
-### 8. Vérification
+### 9. Vérification
 
 ```bash
 node --version      # >= 20

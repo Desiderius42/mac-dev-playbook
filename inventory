@@ -1,4 +1,4 @@
 [localhost]
-127.0.0.1  ansible_connection=local
+127.0.0.1  ansible_connection=local ansible_python_interpreter=/opt/homebrew/bin/python3
 [UbuntuVM]
 192.168.1.157 ansible_connection=ssh ansible_ssh_user=freebox
