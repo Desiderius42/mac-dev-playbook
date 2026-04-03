@@ -33,17 +33,19 @@ brew install --cask 1password
 
 Ouvrir 1Password, se connecter, récupérer ses mots de passe (dont Apple ID).
 
-### 4. Installer les casks nécessitant sudo interactif (incompatibles avec le playbook)
+Activer l'agent SSH : 1Password > Settings > Developer > "Set up SSH Agent". Cela permet à Git d'utiliser les clés SSH stockées dans 1Password.
+
+Vérifier que la connexion SSH fonctionne :
 
 ```bash
-brew install --cask google-drive tailscale
+ssh -T git@github.com
 ```
 
-### 5. Se connecter au Mac App Store
+### 4. Se connecter au Mac App Store
 
 Ouvrir App Store, se connecter avec son Apple ID (nécessaire pour installer Xcode via le playbook).
 
-### 6. Installer Ansible et Claude Code
+### 5. Installer Ansible et Claude Code
 
 ```bash
 brew install ansible node
@@ -52,10 +54,16 @@ npm install -g @anthropic-ai/claude-code
 
 Claude Code est disponible dès maintenant pour aider à debugger si le playbook échoue.
 
+### 6. Installer les casks nécessitant sudo interactif (incompatibles avec le playbook)
+
+```bash
+brew install --cask google-drive tailscale
+```
+
 ### 7. Cloner et lancer le playbook
 
 ```bash
-git clone https://github.com/Desiderius42/mac-dev-playbook.git
+git clone git@github.com:Desiderius42/mac-dev-playbook.git
 cd mac-dev-playbook
 ansible-galaxy install -r requirements.yml
 ansible-playbook dev-workstation.yml -i inventory -K
